@@ -1,71 +1,31 @@
-
-import { Button } from "@mui/material"; // Import Material UI Button
+import { Button, Link, Box } from "@mui/material"; // Import Material UI Button
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import Header from "./components/common/Header";
 
 
 export default function LandingPage() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${scrolled ? "bg-white shadow-sm" : "bg-transparent"}`}
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-black rounded-md p-1.5">
-              <span className="text-white font-bold text-lg">E-toad</span>
-            </div>
-          </div>
-
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-gray-700 hover:text-black transition-colors">
-              About
-            </a>
-            <a href="#work" className="text-gray-700 hover:text-black transition-colors">
-              Work
-            </a>
-            <a href="#services" className="text-gray-700 hover:text-black transition-colors">
-              Services
-            </a>
-            <a href="#jobs" className="text-gray-700 hover:text-black transition-colors">
-              Jobs
-            </a>
-          </nav>
-
-          <Button className="bg-white text-black border border-gray-200 hover:bg-gray-100">
-            <span className="mr-2">Contact</span>
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M3.5 2C3.22386 2 3 2.22386 3 2.5C3 2.77614 3.22386 3 3.5 3H11.5C11.7761 3 12 2.77614 12 2.5C12 2.22386 11.7761 2 11.5 2H3.5ZM3 7.5C3 7.22386 3.22386 7 3.5 7H11.5C11.7761 7 12 7.22386 12 7.5C12 7.77614 11.7761 8 11.5 8H3.5C3.22386 8 3 7.77614 3 7.5ZM3 12.5C3 12.2239 3.22386 12 3.5 12H11.5C11.7761 12 12 12.2239 12 12.5C12 12.7761 11.7761 13 11.5 13H3.5C3.22386 13 3 12.7761 3 12.5Z"
-                fill="currentColor"
-                fillRule="evenodd"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </Button>
-        </div>
-      </header>
+      <Header scrolled={scrolled} />
 
       <main className="pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="text-sm text-gray-500 mb-4">Marina Budarina</div>
+            <div className="text-sm text-gray-500 mb-4">EXE101 Group-1</div>
             <h1 className="text-5xl font-bold leading-tight mb-8">
-              Hey& Welcome.
-              <br />
-              Spline to Framer
-              <br />
-              tutorial here <span className="text-yellow-400">✨</span>
+              Welcome to E-Toad
+              <span className="text-yellow-400"> ✨</span>
             </h1>
 
             <div className="flex gap-3 mb-12">
@@ -94,26 +54,37 @@ export default function LandingPage() {
 
         {/* FPT University Information */}
         <div className="max-w-7xl mx-auto mt-32 bg-white rounded-2xl shadow-lg p-8">
-          <h2 className="text-3xl font-bold mb-6 text-center">About FPT University</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            About FPT University
+          </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-gray-700 mb-4">
-                FPT University is a leading private university in Vietnam, established in 2006 by the FPT Corporation,
-                one of the largest information technology companies in the country.
+                FPT University is a leading private university in Vietnam,
+                established in 2006 by the FPT Corporation, one of the largest
+                information technology companies in the country.
               </p>
               <p className="text-gray-700 mb-4">
-                The university specializes in technology education, business administration, languages, and art & design, with a strong focus on practical skills and industry-ready graduates.
+                The university specializes in technology education, business
+                administration, languages, and art & design, with a strong focus
+                on practical skills and industry-ready graduates.
               </p>
               <p className="text-gray-700 mb-4">
-                With campuses in Hanoi, Ho Chi Minh City, Da Nang, and Can Tho, FPT University provides students with modern facilities and an international learning environment.
+                With campuses in Hanoi, Ho Chi Minh City, Da Nang, and Can Tho,
+                FPT University provides students with modern facilities and an
+                international learning environment.
               </p>
               <div className="mt-6">
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white">Learn More</Button>
+                <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                  Learn More
+                </Button>
               </div>
             </div>
             <div className="space-y-4">
               <div className="bg-orange-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-orange-600 mb-2">Key Strengths</h3>
+                <h3 className="font-semibold text-orange-600 mb-2">
+                  Key Strengths
+                </h3>
                 <ul className="list-disc pl-5 text-gray-700 space-y-1">
                   <li>Industry-oriented curriculum</li>
                   <li>Strong partnerships with global tech companies</li>
@@ -123,7 +94,9 @@ export default function LandingPage() {
                 </ul>
               </div>
               <div className="bg-blue-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-blue-600 mb-2">Academic Programs</h3>
+                <h3 className="font-semibold text-blue-600 mb-2">
+                  Academic Programs
+                </h3>
                 <ul className="list-disc pl-5 text-gray-700 space-y-1">
                   <li>Software Engineering</li>
                   <li>Artificial Intelligence</li>
@@ -236,5 +209,5 @@ export default function LandingPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
