@@ -1,11 +1,11 @@
-import logo from "../../assets/icon-etoad.svg";
 import { Box, Button, Link } from "@mui/material";
+import logo from "../../assets/icon-etoad.svg";
 
 const Header = ({ scrolled }) => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent"
+        scrolled ? "bg-white shadow-sm" : "bg-[#cc99ff]"
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">

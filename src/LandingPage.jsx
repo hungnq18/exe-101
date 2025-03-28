@@ -1,8 +1,8 @@
-import { Button, Link, Box } from "@mui/material"; // Import Material UI Button
-import { ChevronDown } from "lucide-react";
+import { Button } from "@mui/material"; // Import Material UI Button
+import { ChevronDown } from "lucide-react"; // Import ChevronDown Icon
 import { useEffect, useState } from "react";
 import Header from "./components/common/Header";
-
+import ThreeDModel from "./components/threeDModel"; // Import the new component
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,6 +14,12 @@ export default function LandingPage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToSection = () => {
+    document.getElementById("fpt-university-info").scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -39,21 +45,24 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <button className="flex items-center text-gray-500 hover:text-black transition-colors">
-              <ChevronDown className="mr-2" />
-              <span>Scroll down</span>
-            </button>
+            {/* ChevronDown Scroll Button */}
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={scrollToSection}
+                className="flex items-center text-gray-500 hover:text-black transition-colors"
+              >
+                <ChevronDown className="mr-2" />
+                <span>Scroll down</span>
+              </button>
+            </div>
           </div>
 
-          <div className="relative h-[400px] md:h-[500px]">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-300 to-pink-300 opacity-80 rounded-full blur-xl transform rotate-45"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-400 to-pink-200 opacity-70 rounded-full blur-md transform -rotate-12"></div>
-            <div className="absolute inset-10 bg-gradient-to-r from-purple-200 to-pink-100 opacity-90 rounded-full blur-sm"></div>
-          </div>
+          {/* Use ThreeDModel component here */}
+          <ThreeDModel />
         </div>
 
-        {/* FPT University Information */}
-        <div className="max-w-7xl mx-auto mt-32 bg-white rounded-2xl shadow-lg p-8">
+        {/* FPT University Information Section */}
+        <div id="fpt-university-info" className="max-w-7xl mx-auto mt-32 bg-white rounded-2xl shadow-lg p-8">
           <h2 className="text-3xl font-bold mb-6 text-center">
             About FPT University
           </h2>
