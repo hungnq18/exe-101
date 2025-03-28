@@ -62,7 +62,7 @@ const Header = ({ scrolled }) => {
 
           <Link
             target="_blank"
-            href="https://viewdaihoc.fpt.edu.vn/fpt-ha-noi/index.html"
+            href="https://www.thinglink.com/video/1961109799709967013"
             color="buttonPrimary.main"
             underline="none"
             sx={{
